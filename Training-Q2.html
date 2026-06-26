@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法國克魯斯 AOP 葡萄酒新品培訓</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@400;700&display=swap');
+        
+        .font-serif-tc { font-family: 'Noto Serif TC', serif; }
+        .font-sans-tc { font-family: 'Noto Sans TC', sans-serif; }
+        
+        body { 
+            font-family: 'Noto Sans TC', sans-serif; 
+            background-color: #FAF6F0; 
+        }
+        
+        .slide { display: none; min-height: 75vh; }
+        .slide.active { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        
+        /* 法國波爾多紅酒配色 */
+        .bg-wine-dark { background-color: #4A0E17; } /* 深紅酒色 */
+        .bg-wine-light { background-color: #5C121E; }
+        .text-wine { color: #5C121E; }
+        .border-wine { border-color: #5C121E; }
+        .bg-gold { background-color: #C5A880; } /* 金色 */
+        .text-gold { color: #A68051; }
+        .border-gold { border-color: #C5A880; }
+        
+        .btn-wine-shadow { box-shadow: 0 4px 14px 0 rgba(74, 14, 23, 0.25); }
+        
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-stone-800 overflow-x-hidden relative min-h-screen flex flex-col font-sans-tc">
+
+    <!-- 頂部進度條 -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-stone-200 z-50">
+        <div id="progress-bar" class="h-full bg-wine-dark transition-all duration-300" style="width: 20%"></div>
+    </div>
+
+    <!-- 主容器 -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl flex-grow flex flex-col justify-between">
+        
+        <div class="flex-grow flex flex-col justify-center my-auto">
+            
+            <!-- Slide 1: 封面 -->
+            <section id="slide-1" class="slide active fade-in text-center">
+                <div class="inline-block bg-amber-100 text-wine px-4 py-1 rounded-full text-xs md:text-sm font-bold mb-4 tracking-widest border border-amber-200">
+                    台酒引進 • 2026 法蘭西新品
+                </div>
+                <h1 class="text-4xl md:text-5xl font-serif-tc font-black mb-6 text-stone-900 leading-tight">
+                    法國「克魯斯 Cruse」<br>
+                    <span class="text-wine">AOP 葡萄酒快速培訓</span>
+                </h1>
+                <p class="text-base md:text-lg text-stone-500 mb-10">預計時間：15 分鐘 | 目標：階梯式升級銷售</p>
+                <button onclick="nextSlide()" class="bg-wine-dark text-white px-12 py-4 rounded-full font-bold text-lg hover:bg-wine-light transition btn-wine-shadow tracking-widest">
+                    進入紅酒課程
+                </button>
+            </section>
+
+            <!-- Slide 2: 品牌價值 (2分鐘) -->
+            <section id="slide-2" class="slide fade-in">
+                <h2 class="text-2xl md:text-3xl font-serif-tc font-bold mb-8 text-center text-stone-900 border-b pb-3 border-stone-200 w-full">
+                    建立品牌自信：為什麼推薦克魯斯？
+                </h2>
+                <div class="grid md:grid-cols-3 gap-6 w-full">
+                    <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-gold text-center">
+                        <div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4 text-wine">
+                            <i class="fas fa-history text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-wine">200年歷史底蘊</h3>
+                        <p class="text-stone-500 text-xs md:text-sm leading-relaxed">成立於 1819 年，是法國波爾多最具傳統的指標酒商之一，品質傳承百年不變。</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-wine text-center">
+                        <div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4 text-wine">
+                            <i class="fas fa-landmark text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-wine">GCF 法國最大集團</h3>
+                        <p class="text-stone-500 text-xs md:text-sm leading-relaxed">背靠法國第一大葡萄酒釀造與出口集團，具有極強的資源與釀造品質控管，保證品質穩定。</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-gold text-center">
+                        <div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4 text-wine">
+                            <i class="fas fa-certificate text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-wine">正宗 AOP 法定產區</h3>
+                        <p class="text-stone-500 text-xs md:text-sm leading-relaxed">三款新品均為 AOP 法定產區最高級別，非市面一般無產區 VDF 餐酒可比擬。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: 階梯式產品對決 (互動選卡, 8分鐘) -->
+            <section id="slide-3" class="slide fade-in w-full">
+                <h2 class="text-2xl md:text-3xl font-serif-tc font-bold mb-6 text-center text-stone-900">
+                    核心知識：三款新品階梯對決
+                </h2>
+                
+                <!-- 互動標籤頁切換 -->
+                <div class="flex border-b border-stone-200 mb-6 w-full justify-center">
+                    <button id="tab-0" onclick="switchWineTab(0)" class="px-3 md:px-6 py-3 font-bold border-b-2 border-wine text-wine text-xs md:text-sm transition duration-300">
+                        1. AOP 波爾多
+                    </button>
+                    <button id="tab-1" onclick="switchWineTab(1)" class="px-3 md:px-6 py-3 font-bold border-b-2 border-transparent text-stone-400 hover:text-wine text-xs md:text-sm transition duration-300">
+                        2. 波爾多-橡木陳年
+                    </button>
+                    <button id="tab-2" onclick="switchWineTab(2)" class="px-3 md:px-6 py-3 font-bold border-b-2 border-transparent text-stone-400 hover:text-wine text-xs md:text-sm transition duration-300">
+                        3. 珍藏-聖愛美隆 AOP
+                    </button>
+                </div>
+
+                <!-- 葡萄酒產品展示卡 -->
+                <div id="wine-card" class="bg-white p-6 md:p-8 rounded-3xl shadow-xl border border-stone-100 w-full transition-all duration-300">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 pb-4 border-b border-stone-100">
+                        <div>
+                            <span id="wine-code" class="text-xs text-stone-400 font-mono">貨號：6623100-66</span>
+                            <h3 id="wine-title" class="text-xl md:text-2xl font-bold font-serif-tc text-wine mt-1">克魯斯AOP波爾多葡萄酒</h3>
+                        </div>
+                        <span id="wine-badge" class="mt-2 md:mt-0 bg-stone-100 text-stone-700 text-xs font-bold px-3 py-1 rounded-full border">日常百搭平替款</span>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 text-xs md:text-sm">
+                        <div class="space-y-4">
+                            <div>
+                                <span class="font-bold text-stone-400 block mb-1">🍇 葡萄品種 (Blend)</span>
+                                <p id="wine-grapes" class="text-stone-800">美樂 (Merlot)、赤霞珠 (Cabernet Sauvignon)</p>
+                            </div>
+                            <div>
+                                <span class="font-bold text-stone-400 block mb-1">🍷 工藝與特色</span>
+                                <p id="wine-craft" class="text-stone-800">經典法式溫控發酵。展現純粹的果香，口感溫和，單寧細緻柔順，是最平易近人的正宗波爾多滋味。</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <span class="font-bold text-stone-400 block mb-1">👃 香氣與口感 (Tasting Notes)</span>
+                                <p id="wine-notes" class="text-stone-800">新鮮草莓、成熟李子香氣，酒體中等，入喉圓潤不澀，非常順口。</p>
+                            </div>
+                            <div>
+                                <span class="font-bold text-stone-400 block mb-1">🥩 建議搭配 (Pairing)</span>
+                                <p id="wine-pairing" class="text-stone-800">牛排、烤肉、台式熱炒、起司。日常中西佐餐萬用款。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: 實戰話術 Cheat Sheet (5分鐘) -->
+            <section id="slide-4" class="slide fade-in">
+                <h2 class="text-2xl md:text-3xl font-serif-tc font-bold mb-6 text-center text-stone-900">三招話術：直擊痛點精準推銷</h2>
+                <div class="space-y-4 w-full text-xs md:text-sm">
+                    <!-- Situation 1 -->
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                        <div class="flex gap-3 items-center mb-2">
+                            <div class="bg-amber-100 text-gold px-2.5 py-0.5 rounded font-bold text-xs shrink-0">1. 日常百搭</div>
+                            <p class="font-bold text-stone-900">顧客問：「想買一瓶跟家人晚餐或聚會，順口、配熱炒不澀的？」</p>
+                        </div>
+                        <div class="bg-stone-50 p-3 rounded-lg border border-stone-100">
+                            <p class="text-stone-700"><strong>推薦基礎款 AOP 波爾多：</strong>「那這款克魯斯基礎 AOP 是首選！果香飽滿，口感很圓潤、幾乎不乾澀。不管配肉排還是台式熱炒、烤肉都很百搭，是法國波爾多經典的『萬用普飲款』！」</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Situation 2 -->
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                        <div class="flex gap-3 items-center mb-2">
+                            <div class="bg-wine-dark text-white px-2.5 py-0.5 rounded font-bold text-xs shrink-0">2. 追求性價比</div>
+                            <p class="font-bold text-stone-900">顧客問：「想要有點層次，不喜歡太清淡的果香，想要豐富一點？」</p>
+                        </div>
+                        <div class="bg-stone-50 p-3 rounded-lg border border-stone-100">
+                            <p class="text-stone-700"><strong>推薦橡木陳年款：</strong>「那非常推薦您多帶這瓶『橡木陳年』！它經過法國橡木桶熟成，所以開瓶除了果香，還會散發迷人的香草和烘烤橡木香。口感比一般波爾多更豐厚，喝起來很有層次，完全是萬元名莊的平價替代版！」</p>
+                        </div>
+                    </div>
+
+                    <!-- Situation 3 -->
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                        <div class="flex gap-3 items-center mb-2">
+                            <div class="bg-amber-500 text-white px-2.5 py-0.5 rounded font-bold text-xs shrink-0">3. 送禮 / 商務</div>
+                            <p class="font-bold text-stone-900">顧客問：「要去大餐會請客，或是送給比較懂酒的朋友？」</p>
+                        </div>
+                        <div class="bg-stone-50 p-3 rounded-lg border border-stone-100">
+                            <p class="text-stone-700"><strong>推薦聖愛美隆 AOP：</strong>「送禮或重要餐會，選這支『聖愛美隆』絕對不會出錯！它是波爾多最著名的明星產區，口感就像天鵝絨一樣非常絲滑。它展現的是成熟黑莓、李子、煙燻與皮革的優雅複雜香氣，懂酒的一看就知道這支是頂級的好貨，送禮非常有面子！」</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 5: 結語 -->
+            <section id="slide-5" class="slide fade-in text-center">
+                <div class="w-20 h-20 bg-wine-dark text-white rounded-full flex items-center justify-center text-3xl mx-auto mb-6 shadow-lg animate-bounce">
+                    <i class="fas fa-wine-glass-empty"></i>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-serif-tc font-bold mb-4 text-stone-900">克魯斯培訓完成！</h2>
+                <p class="text-base md:text-lg text-stone-500 mb-2 font-bold">記住客單價向上提升 (Up-selling) 秘訣：</p>
+                <p class="text-xs md:text-sm text-stone-600 mb-10 bg-amber-50 px-6 py-3 rounded-full inline-block border border-amber-100">
+                    基礎百搭 AOP → 橡木陳年增層次 → 聖愛美隆尊貴旗艦
+                </p>
+                <div>
+                    <button onclick="showSlide(1)" class="text-stone-400 hover:text-stone-600 underline decoration-dotted transition text-sm">重新複習一次</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- 底部控制區 -->
+        <div class="mt-8 pt-6 border-t border-stone-200 flex justify-between items-center w-full">
+            <button id="prevBtn" onclick="prevSlide()" class="text-stone-400 hover:text-wine py-2 flex items-center gap-2 transition font-bold text-xs md:text-sm">
+                <i class="fas fa-arrow-left"></i> 上一頁
+            </button>
+            <div class="flex gap-2" id="dot-container"></div>
+            <button id="nextBtn" onclick="nextSlide()" class="bg-wine-dark text-white px-6 py-2 rounded-full font-bold btn-wine-shadow flex items-center gap-2 transition hover:bg-wine-light text-xs md:text-sm">
+                下一頁 <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </main>
+
+    <!-- 自訂燈箱 -->
+    <div id="successModal" class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full mx-4 shadow-2xl text-center transform scale-95 transition-transform duration-300" id="modalCard">
+            <div class="w-16 h-16 bg-amber-50 text-wine rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                <i class="fas fa-champagne-glasses"></i>
+            </div>
+            <h3 class="text-2xl font-serif-tc font-black text-stone-900 mb-2">大豐收！</h3>
+            <p class="text-stone-600 text-sm mb-6 leading-relaxed">克魯斯 AOP 葡萄酒系列教材已就緒，預祝團隊精準鎖定顧客，客單價狂飆升級！</p>
+            <button onclick="closeModal()" class="w-full bg-wine-dark hover:bg-wine-light text-white font-bold py-3 px-6 rounded-xl transition">
+                收到，開始提升銷售！
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 5;
+        const progressBar = document.getElementById('progress-bar');
+        const dotContainer = document.getElementById('dot-container');
+
+        // 互動標籤頁資料 (完全與教案文稿對齊)
+        const wineData = [
+            {
+                code: "貨號：6623100-66",
+                title: "克魯斯AOP波爾多葡萄酒",
+                badge: "日常百搭平替款",
+                grapes: "美樂 (Merlot)、赤霞珠 (Cabernet Sauvignon)",
+                craft: "經典法式溫控發酵。展現純粹的果香，口感溫和，單寧細緻柔順，是最平易近人的正宗波爾多滋味。",
+                notes: "新鮮草莓、成熟李子香氣，酒體中等，入喉圓潤不澀，非常順口。",
+                pairing: "牛排、烤肉、台式熱炒、起司。日常中西佐餐萬用款。"
+            },
+            {
+                code: "貨號：6623102-66",
+                title: "克魯斯AOP波爾多葡萄酒-橡木陳年",
+                badge: "小資高 CP 值升級款",
+                grapes: "美樂 (Merlot)、赤霞珠 (Cabernet Sauvignon)",
+                craft: "於法國橡木桶中陳年熟成，使橡木香與熟果香完美融和，增加了結構感，是一款性價比極高的橡木桶紅酒。",
+                notes: "除了波爾多紅果香，更帶有香草、烘烤木質與細緻香料香氣，層次感突出。",
+                pairing: "烤羊排、醬爆牛肉、烤鴨、煙燻肉品。適合搭配有醬汁或微重口味菜餚。"
+            },
+            {
+                code: "貨號：6623101-66",
+                title: "珍藏克魯斯-聖愛美隆AOP葡萄酒",
+                badge: "中高端名莊珍藏級",
+                grapes: "美樂 (Merlot)、品麗珠 (Cabernet Franc)",
+                craft: "來自波爾多右岸世界遺產「聖愛美隆 AOP」黃金產區。右岸經典美樂主導，釀造工藝更為細膩講究，具有絕佳陳年實力。",
+                notes: "成熟黑莓、李子、煙燻與皮革的優雅香氣，單寧如天鵝絨般極其絲滑，酒體飽滿，餘韻悠長。",
+                pairing: "頂級肋眼牛排、烤松露、法式鴨胸、陳年起司。適合重要宴會或餽贈好友。"
+            }
+        ];
+
+        // 初始化導航點
+        for(let i=1; i<=totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.id = `dot-${i}`;
+            dot.setAttribute('aria-label', `Go to slide ${i}`);
+            dot.className = `w-2.5 h-2.5 rounded-full bg-stone-300 transition-all focus:outline-none`;
+            dot.onclick = () => showSlide(i);
+            dotContainer.appendChild(dot);
+        }
+
+        // 換頁渲染
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+            document.getElementById(`slide-${n}`).classList.add('active');
+            
+            // 進度條與導航點
+            progressBar.style.width = `${(n / totalSlides) * 100}%`;
+            document.querySelectorAll('#dot-container button').forEach((d, idx) => {
+                d.className = (idx + 1 === n) ? 'w-6 h-2.5 rounded-full bg-wine-dark transition-all' : 'w-2.5 h-2.5 rounded-full bg-stone-300 transition-all';
+            });
+
+            // 按鈕控制
+            document.getElementById('prevBtn').style.opacity = (n === 1) ? '0' : '1';
+            document.getElementById('prevBtn').style.pointerEvents = (n === 1) ? 'none' : 'auto';
+            document.getElementById('nextBtn').innerHTML = (n === totalSlides) ? '開始銷售 <i class="fas fa-check"></i>' : '下一頁 <i class="fas fa-arrow-right"></i>';
+            
+            currentSlide = n;
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // 下一頁
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                showSlide(currentSlide + 1);
+            } else {
+                openModal();
+            }
+        }
+
+        // 上一頁
+        function prevSlide() {
+            if (currentSlide > 1) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // 互動切換葡萄酒資料卡
+        function switchWineTab(idx) {
+            // 切換按鈕樣式
+            for (let i = 0; i < 3; i++) {
+                const btn = document.getElementById(`tab-${i}`);
+                if (i === idx) {
+                    btn.className = "px-3 md:px-6 py-3 font-bold border-b-2 border-wine text-wine text-xs md:text-sm transition duration-300";
+                } else {
+                    btn.className = "px-3 md:px-6 py-3 font-bold border-b-2 border-transparent text-stone-400 hover:text-wine text-xs md:text-sm transition duration-300";
+                }
+            }
+
+            // 淡入更新卡片內容
+            const card = document.getElementById('wine-card');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(5px)';
+            
+            setTimeout(() => {
+                const data = wineData[idx];
+                document.getElementById('wine-code').innerText = data.code;
+                document.getElementById('wine-title').innerText = data.title;
+                document.getElementById('wine-badge').innerText = data.badge;
+                document.getElementById('wine-grapes').innerText = data.grapes;
+                document.getElementById('wine-craft').innerText = data.craft;
+                document.getElementById('wine-notes').innerText = data.notes;
+                document.getElementById('wine-pairing').innerText = data.pairing;
+                
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 150);
+        }
+
+        // 自訂 Modal 控制
+        function openModal() {
+            const modal = document.getElementById('successModal');
+            const card = document.getElementById('modalCard');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                card.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('successModal');
+            const card = document.getElementById('modalCard');
+            modal.classList.add('opacity-0');
+            card.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // 鍵盤左右方向鍵
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // 初始化
+        showSlide(1);
+    </script>
+</body>
+</html>
