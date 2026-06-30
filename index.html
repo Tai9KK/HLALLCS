@@ -47,14 +47,3 @@
     </script>
 </body>
 </html>
-    const listContainer = document.getElementById('site-list');
-    
-    sites.forEach(site => {
-        listContainer.innerHTML += `
-            <a href="${site.file}" class="${site.color} text-white p-6 rounded-2xl shadow-lg hover:opacity-90 transition flex justify-between items-center transform hover:scale-[1.02]">
-                <span class="text-xl font-bold">${site.name}</span>
-                <span class="bg-white/20 px-4 py-2 rounded-lg font-bold">進入查看 →</span>
-            </a>
-        `;
-    });
-</script>
