@@ -1,20 +1,41 @@
-<script>
-    // 在這裡維護您的據點，新增分店時只需在此處添加一行
-    const sites = [
-        { name: "花蓮營業處 (即期品)", file: "LMT-HL.html", color: "bg-blue-600" },
-        { name: "台東營業處 (即期品)", file: "LMT-TD.html", color: "bg-orange-600" }, // 這裡要加逗號
-        { name: "Q2教育訓練", file: "Training-Q2.html", color: "bg-green-600" },     // 這裡要加逗號
-        { name: "Q3教育訓練", file: "Training-Q3.html", color: "bg-purple-600" }     // 最後一項不用加
-    ];
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花蓮營業處便利店儀表板</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen p-6">
 
-    const listContainer = document.getElementById('site-list');
-    
-    sites.forEach(site => {
-        listContainer.innerHTML += `
-            <a href="${site.file}" class="${site.color} text-white p-6 rounded-2xl shadow-lg hover:opacity-90 transition flex justify-between items-center transform hover:scale-[1.02]">
-                <span class="text-xl font-bold">${site.name}</span>
-                <span class="bg-white/20 px-4 py-2 rounded-lg font-bold">進入查看 →</span>
-            </a>
-        `;
-    });
-</script>
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-3xl font-bold text-blue-900 mb-8 text-center">🏢 花蓮營業處便利店儀表板</h1>
+        
+        <div id="site-list" class="grid gap-4">
+            <!-- 列表將自動產生 -->
+        </div>
+    </div>
+
+    <script>
+        // 陣列物件間已補上必要的逗號
+        const sites = [
+            { name: "花蓮便利店-即期品", file: "LMT-HL.html", color: "bg-blue-600" },
+            { name: "台東便利店-即期品", file: "LMT-TD.html", color: "bg-orange-600" },
+            { name: "Q2教育訓練", file: "Training-Q2.html", color: "bg-green-600" },
+            { name: "Q3教育訓練", file: "Training-Q3.html", color: "bg-purple-600" }
+        ];
+
+        const listContainer = document.getElementById('site-list');
+        
+        // 確保 DOM 載入後執行
+        sites.forEach(site => {
+            listContainer.innerHTML += `
+                <a href="${site.file}" class="${site.color} text-white p-6 rounded-2xl shadow-lg hover:opacity-90 transition flex justify-between items-center transform hover:scale-[1.02]">
+                    <span class="text-xl font-bold">${site.name}</span>
+                    <span class="bg-white/20 px-4 py-2 rounded-lg font-bold">進入查看 →</span>
+                </a>
+            `;
+        });
+    </script>
+</body>
+</html>
